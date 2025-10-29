@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tn Air Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+
+    body {
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+  
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 50px;
+      background-color: #000;
+      border-bottom: 2px solid #e50914;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo img {
+      width: 90px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ddd;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e50914;
+      transform: translateY(-2px);
+    }
+
+    .btn {
+      background-color: #e50914;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff1a1a;
+      transform: scale(1.05);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product {
+      background: #111;
+      border-radius: 15px;
+      border: 1px solid #222;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+
+    .product:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 0 20px red;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product h3 {
+      color: red;
+      margin-top: 15px;
+    }
+
+    
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #111;
+      border: 2px solid red;
+      border-radius: 15px;
+      padding: 30px;
+      color: white;
+      text-align: center;
+      width: 320px;
+      animation: zoomIn 0.4s ease;
+    }
+
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .modal-content .sizes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .size-btn {
+      background: #222;
+      border: 1px solid #444;
+      color: #ccc;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .size-btn:hover, .size-btn.active {
+      background: red;
+      color: #fff;
+      border-color: red;
+    }
+
+    .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+      color: red;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+  
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background: #111;
+      color: #ccc;
+      border-top: 2px solid red;
+      margin-top: 40px;
+    }
+    
+  </style>
+</head>
+<body>
+
+ 
+  <header>
+    <div class="logo">
+      <img src="images/Tn air logo.png" alt="Tn Air Logo">
+    </div>
+  
+    <nav>
+      <a href="TN Store Web.html">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <button class="btn">Sign in</button>
+    </nav>
+  </header>
+
+
+  <section class="product-grid">
+    <div class="product scroll-animate"><img src="images/shoe1.jpg"><h3>Nike Air Max Plus Juventus</h3><span class="price">$195</span></div>
+    <div class="product scroll-animate"><img src="images/shoe2.jpg"><h3>Nike Air Max Plus Black</h3><span class="price">$210</span></div>
+    <div class="product scroll-animate"><img src="images/shoe3.jpg"><h3>Nike Air Max Plus YAMAHA</h3><span class="price">$200</span></div>
+    <div class="product scroll-animate"><img src="images/shoe4.jpg"><h3>Nike Air Max Plus RA3DA</h3><span class="price">$200</span></div>
+    <div class="product scroll-animate"><img src="images/shoe5.jpg"><h3>Nike Air Max Plus Olive</h3><span class="price">$180</span></div>
+    <div class="product scroll-animate"><img src="images/shoe6.jpg"><h3>Nike Air Max Plus Barcelona</h3><span class="price">$185</span></div>
+    <div class="product scroll-animate"><img src="images/shoe7.jpg"><h3>Nike Air Max Plus Chelsea</h3><span class="price">$185</span></div>
+    <div class="product scroll-animate"><img src="images/shoe8.jpg"><h3>Nike Air Max Plus La Zare</h3><span class="price">$190</span></div>
+    <div class="product scroll-animate"><img src="images/shoe9.jpg"><h3>Nike Air Max Plus White</h3><span class="price">$210</span></div>
+    <div class="product scroll-animate"><img src="images/shoe10.jpg"><h3>Nike Air Max Plus White Digradi</h3><span class="price">$200</span></div>
+    <div class="product scroll-animate"><img src="images/shoe11.jpg"><h3>Nike Air Max Plus Shark</h3><span class="price">$195</span></div>
+    <div class="product scroll-animate"><img src="images/shoe12.jpg"><h3>Nike Air Max Plus Hyper Blue</h3><span class="price">$205</span></div>
+  </section>
+  
+
+<footer class="social-footer">
+  <div class="social-icons">
+    <a href="https://www.facebook.com/" target="_blank">
+      <img src="images/facebook.png" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/" target="_blank">
+      <img src="images/instagram.png" alt="Instagram">
+    </a>
+    <a href="https://www.tiktok.com/" target="_blank">
+      <img src="images/tiktok.png" alt="TikTok">
+    </a>
+    <a href="https://wa.me/2130000000" target="_blank">
+      <img src="images/whatsapp.png" alt="WhatsApp">
+    </a>
+
+  </div>
+  <p>Follow us on social media</p>
+</footer>
+
+<style>
+  .social-footer {
+    background: linear-gradient(to top, #000, #1a1a1a);
+    padding: 30px 0;
+    text-align: center;
+    color: #ccc;
+    border-top: 2px solid red;
+    margin-top: 50px;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 15px;
+  }
+
+  .social-icons a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .social-icons a:hover img {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px red;
+  }
+
+  footer p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+  }
+</style>
+
+  <script>
+   
+    const scrollElements = document.querySelectorAll(".scroll-animate");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+    }, { threshold: 0.2 });
+    scrollElements.forEach(el => observer.observe(el));
+
+    
+    document.querySelectorAll(".product").forEach(product => {
+  product.addEventListener("click", () => {
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.innerHTML = `
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 style="margin-bottom:10px">${product.querySelector("h3").textContent}</h2>
+        <img src="${product.querySelector("img").src}" alt="">
+        <p style="color:#ccc;margin-top:8px">اختر المقاس المناسب:</p>
+        <div class="sizes">
+          ${[39,40,41,42,43,44].map(s => `<button class='size-btn'>${s}</button>`).join("")}
+        </div>
+        <button class="shop-btn" style="
+          display:inline-block;
+          margin-top:20px;
+          background-color:red;
+          color:white;
+          padding:12px 30px;
+          border-radius:30px;
+          font-weight:600;
+          text-decoration:none;
+          border:none;
+          cursor:pointer;
+          transition: background 0.3s ease, transform 0.3s ease;
+        ">Buy Now</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    modal.querySelector(".close").onclick = () => modal.remove();
+    modal.addEventListener("click", e => { if (e.target === modal) modal.remove(); });
+
+    
+    const sizeBtns = modal.querySelectorAll(".size-btn");
+    sizeBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        sizeBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+  });
+});
+
+
+  </script>
+</body>
+</html>

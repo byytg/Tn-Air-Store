@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tn Air Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #000000, #111111, #1a1a1a);
+      color: #fff;
+    }
+   
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 50px;
+      background-color: #000;
+      border-bottom: 2px solid #e50914;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo img {
+      width: 90px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ddd;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e50914;
+      transform: translateY(-2px);
+    }
+
+    .btn {
+      background-color: #e50914;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff1a1a;
+      transform: scale(1.05);
+    }
+
+    
+    .hero {
+      text-align: center;
+      padding: 120px 20px;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 span {
+      color: #e50914;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .hero .shop-btn {
+      margin-top: 30px;
+      background-color: #e50914;
+      color: #fff;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero .shop-btn:hover {
+      background-color: #ff1a1a;
+      transform: scale(1.07);
+    }
+
+    
+    .products {
+      padding: 70px 50px;
+      background-color: #111;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 34px;
+      color: #fff;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product {
+      background: #1a1a1a;
+      border-radius: 15px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .product h3 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .product p {
+      color: #aaa;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .product .price {
+      color: #e50914;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    footer {
+      background-color: #000;
+      padding: 25px;
+      text-align: center;
+      color: #aaa;
+      border-top: 2px solid #e50914;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+
+      nav {
+        gap: 20px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+    }
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 40px;
+  border-top: 2px solid red;
+}
+
+footer p {
+  margin-bottom: 15px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  background: #1a1a1a;
+  color: #ccc;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  border: 2px solid #333;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  background: red;
+  color: #fff;
+  border-color: red;
+  transform: scale(1.15);
+  box-shadow: 0 0 15px red;
+}
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 40px;
+  border-top: 2px solid red;
+}
+
+footer p {
+  margin-bottom: 15px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  background: #1a1a1a;
+  color: #ccc;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  border: 2px solid #333;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  background: red;
+  color: #fff;
+  border-color: red;
+  transform: scale(1.15);
+  box-shadow: 0 0 15px red;
+}
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: #111;
+  border: 2px solid red;
+  border-radius: 15px;
+  padding: 30px;
+  color: white;
+  text-align: center;
+  width: 320px;
+  animation: zoomIn 0.4s ease;
+}
+.modal-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.modal-content .sizes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.modal-content .size-btn {
+  background: #222;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.modal-content .size-btn:hover {
+  background: red;
+  color: #fff;
+}
+.size-btn.active {
+  background: red;
+  color: white;
+  border-color: red;
+}
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  color: red;
+}
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.product {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.product:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 20px red;
+}
+
+.glow {
+  transition: text-shadow 0.5s ease, color 0.5s ease;
+}
+.active-glow {
+  color: red;
+  text-shadow: 0 0 10px red, 0 0 20px red;
+}
+
+  .shop-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: red;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .shop-btn:hover {
+    background-color: darkred;
+    transform: scale(1.05);
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="images/Tn air logo.png" alt="Tn Air Logo">
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <button class="btn">Sign in</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to <span>Tn Air</span> Store</h1>
+    <p>Discover the latest shoes & streetwear with bold style.</p>
+    <a href="shop.html" class="shop-btn">Shop Now</a>
+  </section>
+
+  <section class="products">
+    <h2>The Best Products</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="images/shoe1.jpg" alt="Shoe 1">
+        <h3>Tn Air Max Plus Digradi</h3>
+        <p>Dynamic design with premium comfort.</p>
+        <span class="price">$190</span>
+      </div>
+      <div class="product">
+        <img src="images/shoe2.jpg" alt="Shoe 2">
+        <h3>Tn Air Max Plus Black Edition</h3>
+        <p>Dark elegance and maximum performance.</p>
+        <span class="price">$210</span>
+      </div>
+      <div class="product">
+        <img src="images/shoe3.jpg" alt="Shoe 3">
+        <h3>Tn Air Max Plus Blue</h3>
+        <p> Blue streetwear sneaker.</p>
+        <span class="price">$200</span>
+      </div>
+    </div>
+  </section>
+  <footer class="social-footer">
+  <div class="social-icons">
+    <a href="https://www.facebook.com/" target="_blank">
+      <img src="images/facebook.png" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/" target="_blank">
+      <img src="images/instagram.png" alt="Instagram">
+    </a>
+    <a href="https://www.tiktok.com/" target="_blank">
+      <img src="images/tiktok.png" alt="TikTok">
+    </a>
+    <a href="https://wa.me/2130000000" target="_blank">
+      <img src="images/whatsapp.png" alt="WhatsApp">
+    </a>
+
+  </div>
+  <p>Follow us on social media</p>
+</footer>
+
+<style>
+  .social-footer {
+    background: linear-gradient(to top, #000, #1a1a1a);
+    padding: 30px 0;
+    text-align: center;
+    color: #ccc;
+    border-top: 2px solid red;
+    margin-top: 50px;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 15px;
+  }
+
+  .social-icons a img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .social-icons a:hover img {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px red;
+  }
+
+  footer p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+  }
+</style>
+<script>
+window.addEventListener("load", () => {
+  document.body.style.opacity = "0";
+  document.body.style.transition = "opacity 1s ease-in-out";
+  setTimeout(() => {
+    document.body.style.opacity = "1";
+  }, 100);
+});
+
+const scrollElements = document.querySelectorAll(".scroll-animate");
+
+const observerOptions = {
+  threshold: 0.2
+};
+
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, observerOptions);
+
+scrollElements.forEach(el => scrollObserver.observe(el));
+
+
+document.querySelectorAll(".product").forEach(product => {
+  product.addEventListener("click", () => {
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.innerHTML = `
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 style="margin-bottom:10px">${product.querySelector("h3").textContent}</h2>
+        <img src="${product.querySelector("img").src}" alt="">
+        <p style="color:#ccc;margin-top:8px">اختر المقاس المناسب:</p>
+        <div class="sizes">
+          ${[39,40,41,42,43,44].map(s => `<button class='size-btn'>${s}</button>`).join("")}
+        </div>
+        <button class="shop-btn" style="
+          display:inline-block;
+          margin-top:20px;
+          background-color:red;
+          color:white;
+          padding:12px 30px;
+          border-radius:30px;
+          font-weight:600;
+          text-decoration:none;
+          border:none;
+          cursor:pointer;
+          transition: background 0.3s ease, transform 0.3s ease;
+        ">Buy Now</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    modal.querySelector(".close").onclick = () => modal.remove();
+    modal.addEventListener("click", e => { if (e.target === modal) modal.remove(); });
+
+    
+    const sizeBtns = modal.querySelectorAll(".size-btn");
+    sizeBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        sizeBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+  });
+});
+
+
+const glowingElements = document.querySelectorAll(".glow");
+setInterval(() => {
+  glowingElements.forEach(el => {
+    el.classList.toggle("active-glow");
+  });
+}, 2000);
+</script>
+</body>
+</html>
